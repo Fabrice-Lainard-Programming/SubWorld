@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DE7CA0E2-B4B9-F2F9-EF92-C0CE4BBAC945}</ProjectGuid>
+    <ProjectName>SubWorld</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <ConfigurationType>Application</ConfigurationType>
+    <OutDir>$(ProjectDir)../bin/</OutDir>
+    <TargetName>$(ProjectName)_x64d</TargetName>
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)../bin/x64;$(ProjectDir)../bin/;%PATH%</LocalDebuggerEnvironment>
+    <LocalDebuggerCommandArguments>-data_path ../ -engine_config "../data/SubWorld/unigine.cfg" -console_command "world_load \"SubWorld\""</LocalDebuggerCommandArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <ConfigurationType>Application</ConfigurationType>
+    <OutDir>$(ProjectDir)../bin/</OutDir>
+    <TargetName>$(ProjectName)_x64</TargetName>
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)../bin/x64;$(ProjectDir)../bin/;%PATH%</LocalDebuggerEnvironment>
+    <LocalDebuggerCommandArguments>-data_path ../ -engine_config "../data/SubWorld/unigine.cfg" -console_command "world_load \"SubWorld\""</LocalDebuggerCommandArguments>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../include;E:\vcpkg\installed\x86-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PreprocessorDefinitions>DEBUG;ALLOW_ENVIRONMENT_GLOBALS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX64</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib;E:\vcpkg\buildtrees\ompl\x64-windows-rel\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Unigine_x64d.lib;ompl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>../include;E:\vcpkg\installed\x86-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PreprocessorDefinitions>ALLOW_ENVIRONMENT_GLOBALS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX64</TargetMachine>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib;E:\vcpkg\buildtrees\ompl\x64-windows-rel\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Unigine_x64.lib;ompl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AppEditorLogic.cpp" />
+    <ClCompile Include="AppSystemLogic.cpp" />
+    <ClCompile Include="AppWorldLogic.cpp" />
+    <ClCompile Include="ComponentSystem\ComponentSystem.cpp" />
+    <ClCompile Include="Game\AI\CLIPS\agenda.c" />
+    <ClCompile Include="Game\AI\CLIPS\analysis.c" />
+    <ClCompile Include="Game\AI\CLIPS\argacces.c" />
+    <ClCompile Include="Game\AI\CLIPS\bload.c" />
+    <ClCompile Include="Game\AI\CLIPS\bmathfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\bsave.c" />
+    <ClCompile Include="Game\AI\CLIPS\classcom.c" />
+    <ClCompile Include="Game\AI\CLIPS\classexm.c" />
+    <ClCompile Include="Game\AI\CLIPS\classfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\classinf.c" />
+    <ClCompile Include="Game\AI\CLIPS\classini.c" />
+    <ClCompile Include="Game\AI\CLIPS\classpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\clsltpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\commline.c" />
+    <ClCompile Include="Game\AI\CLIPS\conscomp.c" />
+    <ClCompile Include="Game\AI\CLIPS\constrct.c" />
+    <ClCompile Include="Game\AI\CLIPS\constrnt.c" />
+    <ClCompile Include="Game\AI\CLIPS\crstrtgy.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrcbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrccom.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrcpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrnbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrnchk.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrncmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrnops.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrnpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\cstrnutl.c" />
+    <ClCompile Include="Game\AI\CLIPS\default.c" />
+    <ClCompile Include="Game\AI\CLIPS\defins.c" />
+    <ClCompile Include="Game\AI\CLIPS\developr.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffctbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffctbsc.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffctcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffctdef.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffctpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffnxbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffnxcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffnxexe.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffnxfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\dffnxpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\dfinsbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\dfinscmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\drive.c" />
+    <ClCompile Include="Game\AI\CLIPS\emathfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\engine.c" />
+    <ClCompile Include="Game\AI\CLIPS\envrnmnt.c" />
+    <ClCompile Include="Game\AI\CLIPS\evaluatn.c" />
+    <ClCompile Include="Game\AI\CLIPS\expressn.c" />
+    <ClCompile Include="Game\AI\CLIPS\exprnbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\exprnops.c" />
+    <ClCompile Include="Game\AI\CLIPS\exprnpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\extnfunc.c" />
+    <ClCompile Include="Game\AI\CLIPS\factbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\factbld.c" />
+    <ClCompile Include="Game\AI\CLIPS\factcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\factcom.c" />
+    <ClCompile Include="Game\AI\CLIPS\factfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\factgen.c" />
+    <ClCompile Include="Game\AI\CLIPS\facthsh.c" />
+    <ClCompile Include="Game\AI\CLIPS\factlhs.c" />
+    <ClCompile Include="Game\AI\CLIPS\factmch.c" />
+    <ClCompile Include="Game\AI\CLIPS\factmngr.c" />
+    <ClCompile Include="Game\AI\CLIPS\factprt.c" />
+    <ClCompile Include="Game\AI\CLIPS\factqpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\factqury.c" />
+    <ClCompile Include="Game\AI\CLIPS\factrete.c" />
+    <ClCompile Include="Game\AI\CLIPS\factrhs.c" />
+    <ClCompile Include="Game\AI\CLIPS\filecom.c" />
+    <ClCompile Include="Game\AI\CLIPS\filertr.c" />
+    <ClCompile Include="Game\AI\CLIPS\generate.c" />
+    <ClCompile Include="Game\AI\CLIPS\genrcbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\genrccmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\genrccom.c" />
+    <ClCompile Include="Game\AI\CLIPS\genrcexe.c" />
+    <ClCompile Include="Game\AI\CLIPS\genrcfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\genrcpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\globlbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\globlbsc.c" />
+    <ClCompile Include="Game\AI\CLIPS\globlcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\globlcom.c" />
+    <ClCompile Include="Game\AI\CLIPS\globldef.c" />
+    <ClCompile Include="Game\AI\CLIPS\globlpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\immthpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\incrrset.c" />
+    <ClCompile Include="Game\AI\CLIPS\inherpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\inscom.c" />
+    <ClCompile Include="Game\AI\CLIPS\insfile.c" />
+    <ClCompile Include="Game\AI\CLIPS\insfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\insmngr.c" />
+    <ClCompile Include="Game\AI\CLIPS\insmoddp.c" />
+    <ClCompile Include="Game\AI\CLIPS\insmult.c" />
+    <ClCompile Include="Game\AI\CLIPS\inspsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\insquery.c" />
+    <ClCompile Include="Game\AI\CLIPS\insqypsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\iofun.c" />
+    <ClCompile Include="Game\AI\CLIPS\lgcldpnd.c" />
+    <ClCompile Include="Game\AI\CLIPS\memalloc.c" />
+    <ClCompile Include="Game\AI\CLIPS\miscfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\modulbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\modulbsc.c" />
+    <ClCompile Include="Game\AI\CLIPS\modulcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\moduldef.c" />
+    <ClCompile Include="Game\AI\CLIPS\modulpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\modulutl.c" />
+    <ClCompile Include="Game\AI\CLIPS\msgcom.c" />
+    <ClCompile Include="Game\AI\CLIPS\msgfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\msgpass.c" />
+    <ClCompile Include="Game\AI\CLIPS\msgpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\multifld.c" />
+    <ClCompile Include="Game\AI\CLIPS\multifun.c" />
+    <ClCompile Include="Game\AI\CLIPS\objbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\objcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\objrtbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\objrtbld.c" />
+    <ClCompile Include="Game\AI\CLIPS\objrtcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\objrtfnx.c" />
+    <ClCompile Include="Game\AI\CLIPS\objrtgen.c" />
+    <ClCompile Include="Game\AI\CLIPS\objrtmch.c" />
+    <ClCompile Include="Game\AI\CLIPS\parsefun.c" />
+    <ClCompile Include="Game\AI\CLIPS\pattern.c" />
+    <ClCompile Include="Game\AI\CLIPS\pprint.c" />
+    <ClCompile Include="Game\AI\CLIPS\prccode.c" />
+    <ClCompile Include="Game\AI\CLIPS\prcdrfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\prcdrpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\prdctfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\prntutil.c" />
+    <ClCompile Include="Game\AI\CLIPS\proflfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\reorder.c" />
+    <ClCompile Include="Game\AI\CLIPS\reteutil.c" />
+    <ClCompile Include="Game\AI\CLIPS\retract.c" />
+    <ClCompile Include="Game\AI\CLIPS\router.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulebin.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulebld.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulebsc.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulecmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulecom.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulecstr.c" />
+    <ClCompile Include="Game\AI\CLIPS\ruledef.c" />
+    <ClCompile Include="Game\AI\CLIPS\ruledlt.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulelhs.c" />
+    <ClCompile Include="Game\AI\CLIPS\rulepsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\scanner.c" />
+    <ClCompile Include="Game\AI\CLIPS\sortfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\strngfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\strngrtr.c" />
+    <ClCompile Include="Game\AI\CLIPS\symblbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\symblcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\symbol.c" />
+    <ClCompile Include="Game\AI\CLIPS\sysdep.c" />
+    <ClCompile Include="Game\AI\CLIPS\textpro.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltbin.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltbsc.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltcmp.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltdef.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltfun.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltlhs.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltpsr.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltrhs.c" />
+    <ClCompile Include="Game\AI\CLIPS\tmpltutl.c" />
+    <ClCompile Include="Game\AI\CLIPS\userdata.c" />
+    <ClCompile Include="Game\AI\CLIPS\userfunctions.c" />
+    <ClCompile Include="Game\AI\CLIPS\utility.c" />
+    <ClCompile Include="Game\AI\CLIPS\watch.c" />
+    <ClCompile Include="Game\AI\DetectionSystem.cpp" />
+    <ClCompile Include="Game\AI\GOAP\Action.cpp" />
+    <ClCompile Include="Game\AI\GOAP\Node.cpp" />
+    <ClCompile Include="Game\AI\GOAP\GoapPlanner.cpp" />
+    <ClCompile Include="Game\AI\GOAP\WorldState.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\CompoundTask.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Domain.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Effect.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\EvalStack.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Fct.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\HTNPlanner.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\HTNTest.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Method.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Operator.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Planner.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\PreCondition.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\PrimitiveTask.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\Runner.cpp" />
+    <ClCompile Include="Game\AI\HTNPlanner\WorldStateProperties.cpp" />
+    <ClCompile Include="Game\AI\Reasoner.cpp" />
+    <ClCompile Include="Game\AI\SensorAI.cpp" />
+    <ClCompile Include="Game\AI\StrategicAI.cpp" />
+    <ClCompile Include="Game\AI\UnitGOAPPlannerAI.cpp" />
+    <ClCompile Include="Game\AI\UnitHTNPlannerAI.cpp" />
+    <ClCompile Include="Game\AI\TeamAI.cpp" />
+    <ClCompile Include="Game\BasicStation.cpp" />
+    <ClCompile Include="Game\BattleUnit.cpp" />
+    <ClCompile Include="Game\DroneClassA.cpp" />
+    <ClCompile Include="Game\GameFactory.cpp" />
+    <ClCompile Include="Game\GameLevel.cpp" />
+    <ClCompile Include="Game\GamePlay.cpp" />
+    <ClCompile Include="Game\GameWorld.cpp" />
+    <ClCompile Include="Game\Level_Discovery.cpp" />
+    <ClCompile Include="Game\BattleUnitUI.cpp" />
+    <ClCompile Include="Game\ReffCount.cpp" />
+    <ClCompile Include="Game\ResourceCapacitySystem.cpp" />
+    <ClCompile Include="Game\NodeUI.cpp" />
+    <ClCompile Include="Game\Opensteer\src\Clock.cpp" />
+    <ClCompile Include="Game\Opensteer\src\Draw.cpp" />
+    <ClCompile Include="Game\Opensteer\src\lq.c" />
+    <ClCompile Include="Game\Opensteer\src\Pathway.cpp" />
+    <ClCompile Include="Game\Opensteer\src\PlugIn.cpp" />
+    <ClCompile Include="Game\Opensteer\src\SimpleVehicle.cpp" />
+    <ClCompile Include="Game\Opensteer\src\Vec3.cpp" />
+    <ClCompile Include="Game\PathFinder.cpp" />
+    <ClCompile Include="Game\GameNode.cpp" />
+    <ClCompile Include="Game\ShieldEffect.cpp" />
+    <ClCompile Include="Game\SonarEffect.cpp" />
+    <ClCompile Include="Game\SteeringBehaviors.cpp" />
+    <ClCompile Include="Game\SubClassA.cpp" />
+    <ClCompile Include="Game\Torpedo.cpp" />
+    <ClCompile Include="Game\WeaponControlSystem.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AppEditorLogic.h" />
+    <ClInclude Include="AppSystemLogic.h" />
+    <ClInclude Include="AppWorldLogic.h" />
+    <ClInclude Include="ComponentSystem\ComponentSystem.h" />
+    <ClInclude Include="Game\AI\CLIPS\agenda.h" />
+    <ClInclude Include="Game\AI\CLIPS\analysis.h" />
+    <ClInclude Include="Game\AI\CLIPS\argacces.h" />
+    <ClInclude Include="Game\AI\CLIPS\bload.h" />
+    <ClInclude Include="Game\AI\CLIPS\bmathfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\bsave.h" />
+    <ClInclude Include="Game\AI\CLIPS\classcom.h" />
+    <ClInclude Include="Game\AI\CLIPS\classexm.h" />
+    <ClInclude Include="Game\AI\CLIPS\classfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\classinf.h" />
+    <ClInclude Include="Game\AI\CLIPS\classini.h" />
+    <ClInclude Include="Game\AI\CLIPS\classpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\clips.h" />
+    <ClInclude Include="Game\AI\CLIPS\clsltpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\commline.h" />
+    <ClInclude Include="Game\AI\CLIPS\conscomp.h" />
+    <ClInclude Include="Game\AI\CLIPS\constant.h" />
+    <ClInclude Include="Game\AI\CLIPS\constrct.h" />
+    <ClInclude Include="Game\AI\CLIPS\constrnt.h" />
+    <ClInclude Include="Game\AI\CLIPS\crstrtgy.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrcbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrccmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrccom.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrcpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrnbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrnchk.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrncmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrnops.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrnpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\cstrnutl.h" />
+    <ClInclude Include="Game\AI\CLIPS\default.h" />
+    <ClInclude Include="Game\AI\CLIPS\defins.h" />
+    <ClInclude Include="Game\AI\CLIPS\developr.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffctbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffctbsc.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffctcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffctdef.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffctpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffnxbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffnxcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffnxexe.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffnxfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\dffnxpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\dfinsbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\dfinscmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\drive.h" />
+    <ClInclude Include="Game\AI\CLIPS\emathfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\engine.h" />
+    <ClInclude Include="Game\AI\CLIPS\envrnmnt.h" />
+    <ClInclude Include="Game\AI\CLIPS\evaluatn.h" />
+    <ClInclude Include="Game\AI\CLIPS\expressn.h" />
+    <ClInclude Include="Game\AI\CLIPS\exprnbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\exprnops.h" />
+    <ClInclude Include="Game\AI\CLIPS\exprnpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\extnfunc.h" />
+    <ClInclude Include="Game\AI\CLIPS\factbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\factbld.h" />
+    <ClInclude Include="Game\AI\CLIPS\factcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\factcom.h" />
+    <ClInclude Include="Game\AI\CLIPS\factfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\factgen.h" />
+    <ClInclude Include="Game\AI\CLIPS\facthsh.h" />
+    <ClInclude Include="Game\AI\CLIPS\factlhs.h" />
+    <ClInclude Include="Game\AI\CLIPS\factmch.h" />
+    <ClInclude Include="Game\AI\CLIPS\factmngr.h" />
+    <ClInclude Include="Game\AI\CLIPS\factprt.h" />
+    <ClInclude Include="Game\AI\CLIPS\factqpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\factqury.h" />
+    <ClInclude Include="Game\AI\CLIPS\factrete.h" />
+    <ClInclude Include="Game\AI\CLIPS\factrhs.h" />
+    <ClInclude Include="Game\AI\CLIPS\filecom.h" />
+    <ClInclude Include="Game\AI\CLIPS\filertr.h" />
+    <ClInclude Include="Game\AI\CLIPS\generate.h" />
+    <ClInclude Include="Game\AI\CLIPS\genrcbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\genrccmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\genrccom.h" />
+    <ClInclude Include="Game\AI\CLIPS\genrcexe.h" />
+    <ClInclude Include="Game\AI\CLIPS\genrcfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\genrcpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\globlbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\globlbsc.h" />
+    <ClInclude Include="Game\AI\CLIPS\globlcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\globlcom.h" />
+    <ClInclude Include="Game\AI\CLIPS\globldef.h" />
+    <ClInclude Include="Game\AI\CLIPS\globlpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\immthpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\incrrset.h" />
+    <ClInclude Include="Game\AI\CLIPS\inherpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\inscom.h" />
+    <ClInclude Include="Game\AI\CLIPS\insfile.h" />
+    <ClInclude Include="Game\AI\CLIPS\insfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\insmngr.h" />
+    <ClInclude Include="Game\AI\CLIPS\insmoddp.h" />
+    <ClInclude Include="Game\AI\CLIPS\insmult.h" />
+    <ClInclude Include="Game\AI\CLIPS\inspsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\insquery.h" />
+    <ClInclude Include="Game\AI\CLIPS\insqypsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\iofun.h" />
+    <ClInclude Include="Game\AI\CLIPS\lgcldpnd.h" />
+    <ClInclude Include="Game\AI\CLIPS\match.h" />
+    <ClInclude Include="Game\AI\CLIPS\memalloc.h" />
+    <ClInclude Include="Game\AI\CLIPS\miscfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\modulbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\modulbsc.h" />
+    <ClInclude Include="Game\AI\CLIPS\modulcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\moduldef.h" />
+    <ClInclude Include="Game\AI\CLIPS\modulpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\modulutl.h" />
+    <ClInclude Include="Game\AI\CLIPS\msgcom.h" />
+    <ClInclude Include="Game\AI\CLIPS\msgfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\msgpass.h" />
+    <ClInclude Include="Game\AI\CLIPS\msgpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\multifld.h" />
+    <ClInclude Include="Game\AI\CLIPS\multifun.h" />
+    <ClInclude Include="Game\AI\CLIPS\network.h" />
+    <ClInclude Include="Game\AI\CLIPS\objbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\objcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\object.h" />
+    <ClInclude Include="Game\AI\CLIPS\objrtbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\objrtbld.h" />
+    <ClInclude Include="Game\AI\CLIPS\objrtcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\objrtfnx.h" />
+    <ClInclude Include="Game\AI\CLIPS\objrtgen.h" />
+    <ClInclude Include="Game\AI\CLIPS\objrtmch.h" />
+    <ClInclude Include="Game\AI\CLIPS\parsefun.h" />
+    <ClInclude Include="Game\AI\CLIPS\pattern.h" />
+    <ClInclude Include="Game\AI\CLIPS\pprint.h" />
+    <ClInclude Include="Game\AI\CLIPS\prccode.h" />
+    <ClInclude Include="Game\AI\CLIPS\prcdrfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\prcdrpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\prdctfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\prntutil.h" />
+    <ClInclude Include="Game\AI\CLIPS\proflfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\reorder.h" />
+    <ClInclude Include="Game\AI\CLIPS\reteutil.h" />
+    <ClInclude Include="Game\AI\CLIPS\retract.h" />
+    <ClInclude Include="Game\AI\CLIPS\router.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulebin.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulebld.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulebsc.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulecmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulecom.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulecstr.h" />
+    <ClInclude Include="Game\AI\CLIPS\ruledef.h" />
+    <ClInclude Include="Game\AI\CLIPS\ruledlt.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulelhs.h" />
+    <ClInclude Include="Game\AI\CLIPS\rulepsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\scanner.h" />
+    <ClInclude Include="Game\AI\CLIPS\setup.h" />
+    <ClInclude Include="Game\AI\CLIPS\sortfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\strngfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\strngrtr.h" />
+    <ClInclude Include="Game\AI\CLIPS\symblbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\symblcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\symbol.h" />
+    <ClInclude Include="Game\AI\CLIPS\sysdep.h" />
+    <ClInclude Include="Game\AI\CLIPS\textpro.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltbin.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltbsc.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltcmp.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltdef.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltfun.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltlhs.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltpsr.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltrhs.h" />
+    <ClInclude Include="Game\AI\CLIPS\tmpltutl.h" />
+    <ClInclude Include="Game\AI\CLIPS\userdata.h" />
+    <ClInclude Include="Game\AI\CLIPS\usrsetup.h" />
+    <ClInclude Include="Game\AI\CLIPS\utility.h" />
+    <ClInclude Include="Game\AI\CLIPS\watch.h" />
+    <ClInclude Include="Game\AI\DetectionSystem.h" />
+    <ClInclude Include="Game\AI\EnumNoiseLevel.h" />
+    <ClInclude Include="Game\AI\GOAP\Action.h" />
+    <ClInclude Include="Game\AI\GOAP\GoapInterface.h" />
+    <ClInclude Include="Game\AI\GOAP\Node.h" />
+    <ClInclude Include="Game\AI\GOAP\GoapPlanner.h" />
+    <ClInclude Include="Game\AI\GOAP\WorldState.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\CompoundTask.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Domain.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Effect.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\EvalStack.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Fct.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\HTNInterface.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\HTNPlanner.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\HTNTrace.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Method.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Planner.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\PreCondition.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Runner.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Value.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\HTNTest.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Operator.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\PrimitiveTask.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\Variant.h" />
+    <ClInclude Include="Game\AI\HTNPlanner\WorldStateProperties.h" />
+    <ClInclude Include="Game\AI\Reasoner.h" />
+    <ClInclude Include="Game\AI\SensorAI.h" />
+    <ClInclude Include="Game\AI\StrategicAI.h" />
+    <ClInclude Include="Game\AI\UnitGOAPPlannerAI.h" />
+    <ClInclude Include="Game\AI\UnitHTNPlannerAI.h" />
+    <ClInclude Include="Game\AI\TeamAI.h" />
+    <ClInclude Include="Game\AutoActionTimer.h" />
+    <ClInclude Include="Game\BasicStation.h" />
+    <ClInclude Include="Game\BattleUnit.h" />
+    <ClInclude Include="Game\Converter.h" />
+    <ClInclude Include="Game\DroneClassA.h" />
+    <ClInclude Include="Game\GameFactory.h" />
+    <ClInclude Include="Game\GameLevel.h" />
+    <ClInclude Include="Game\GamePlay.h" />
+    <ClInclude Include="Game\GamePlayCallBack.h" />
+    <ClInclude Include="Game\GameWorld.h" />
+    <ClInclude Include="Game\Level_Discovery.h" />
+    <ClInclude Include="Game\BattleUnitUI.h" />
+    <ClInclude Include="Game\ReffCount.h" />
+    <ClInclude Include="Game\ResourceCapacitySystem.h" />
+    <ClInclude Include="Game\NodeUI.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\AbstractVehicle.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Annotation.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Clock.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Draw.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\LocalSpace.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\lq.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Obstacle.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Pathway.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\PlugIn.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Proximity.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\SimpleVehicle.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\SteerLibrary.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Utilities.h" />
+    <ClInclude Include="Game\Opensteer\include\OpenSteer\Vec3.h" />
+    <ClInclude Include="Game\PathFinder.h" />
+    <ClInclude Include="Game\GameNode.h" />
+    <ClInclude Include="Game\ShieldEffect.h" />
+    <ClInclude Include="Game\SonarEffect.h" />
+    <ClInclude Include="Game\SteeringBehaviors.h" />
+    <ClInclude Include="Game\SubClassA.h" />
+    <ClInclude Include="Game\Torpedo.h" />
+    <ClInclude Include="Game\WeaponControlSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="../utils/natvis/unigine_stl.natvis" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
