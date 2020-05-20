@@ -13,4 +13,6 @@ Written in C ++ it include the following :
 - 3D : Unigine engine : https://unigine.com/
 
 Note: Because of its size, the Game World is not included in this repository.
- If you want to participate in the development of this game, contact me by email: lainardfabriceprogramming@outlook.com
+ 
+ 
+If you want to participate in the development of this game, contact me by email: lainardfabriceprogramming@outlook.com
