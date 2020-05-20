@@ -1,8 +1,6 @@
 # SubWorld
 
-
-
-3D Submarine Game (work in progress)
+## 3D Submarine Game (work in progress)
 
 Written in C ++ it include the following :
 
@@ -16,4 +14,4 @@ Written in C ++ it include the following :
 
 Note: Because of its size, the Game World is not included in this repository.
 
-If you want to participate in the development of this game, contact me by email: lainardfabriceprogramming@outlook.com
+### If you want to participate in the development of this game, contact me by email: lainardfabriceprogramming@outlook.com
